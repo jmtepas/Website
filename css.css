@@ -1,0 +1,459 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    height: 100%;
+}
+
+.loader_page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: black;
+    z-index: 1000000000;
+
+}
+
+.loading_page{
+    position: absolute;
+    width: 25%;
+    object-fit: contain;
+    left:50%;
+    top:50%;
+    margin:0 auto;
+    margin-left:-12.5%;
+    margin-top:-12.5%;
+    z-index: 10000000000;
+}
+
+.loading_page_mobile{
+    position: absolute;
+    width: 75%;
+    object-fit: contain;
+    left:50%;
+    top:50%;
+    margin:0 auto;
+    margin-left:-37.5%;
+    margin-top:-37.5%;
+    z-index: 10000000000;
+}
+
+.home_img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.home_page::before {
+    content: '';
+    position:absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 1%,rgba(0, 0, 0, 0) 99%, rgba(0, 0, 0, .3) 100%), linear-gradient(to right, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 1%,rgba(0, 0, 0, 0) 99%, rgba(0, 0, 0, .3) 100%);
+    z-index: 10000;
+}
+
+
+.home_page{
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%);
+
+    
+}
+
+.spacer{
+    height: 5%;
+}
+
+.gallery_words2{
+    position: absolute;
+    margin: auto;
+    top: 50%; left: 0; bottom: 0%; right: 0;
+    margin-top:-10%;
+    z-index: 100;
+    font-size: xx-large;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.gallery_words{
+    position: absolute;
+    margin: auto;
+   top: 80%; left: 0; bottom: 0%; right: 0;
+    z-index: 100;
+    font-size: large;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: .5s;
+}
+
+.gallery_words_mobile{
+    position: absolute;
+    margin: auto;
+   top: 80%; left: 0; bottom: 0%; right: 0;
+    z-index: 100;
+    font-size: xx-large;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: .5s;
+}
+
+
+.gallery_cover_mobile{
+    position: absolute;
+    margin: auto;
+    top: 0; left: 0; bottom: 0%; right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.gallery_cover:hover{
+    opacity: 1;
+}
+
+.gallery_cover:hover + .gallery_words{
+    opacity: 0;
+}
+
+
+
+.home_logo{
+    width: 15%;
+    position: absolute;
+   margin: auto;
+   z-index: 10000000000;
+   top: -83%; left: 0; bottom: 0; right: -80%;
+
+}
+
+.home_logo_mobile{
+    width: 25%;
+    position: absolute;
+   margin: auto;
+   z-index: 10000000000;
+   top: -89%; left: 0; bottom: 0; right: -70%;
+
+}
+
+.gal_logo{
+    width: 5%;
+    position: absolute;
+   margin: auto;
+   z-index: 10000000000;
+   top: -92%; left: 0; bottom: 0; right: -91%;
+
+
+}
+
+
+.gal_logo_mobile{
+    width: 10%;
+    position: absolute;
+   margin: auto;
+   z-index: 10000000000;
+   top: -94%; left: 0; bottom: 0; right: -87%;
+
+
+}
+
+.home_button{
+    position: absolute;
+   padding: 20px;
+   background-color: white;
+   width: fit-content;
+   height: fit-content;
+   margin: auto;
+   top: 0; left: 0; bottom: -50%; right: 0;
+   transition: 0.5s;
+   z-index: 200000;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   cursor: pointer;
+}
+
+.home_button:hover{
+    background-color: black;
+    transform: scale(1.2);
+    color: white; 
+}
+
+
+.home_button_mobile{
+    position: absolute;
+   padding: 30px;
+   background-color: white;
+   width: fit-content;
+   height: fit-content;
+   margin: auto;
+   top: 0; left: 0; bottom: -50%; right: 0;
+   transition: 0.5s;
+   z-index: 200000;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   cursor: pointer;
+   font-size: xx-large;
+}
+
+.home_button_mobile:hover{
+    background-color: black;
+    transform: scale(1.2);
+    color: white; 
+}
+
+.gallery_page{
+    display: none;
+    text-align: center;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgb(0, 0, 0) 50%,rgb(0, 0, 0) 75%,rgb(0, 0, 0) 100%);
+    background-size: cover;
+    padding-bottom: 2%;
+}
+
+.gallery_display{
+    min-width: 200px;
+    width: 26.5%;
+    height: 35vh;
+    min-height: 150px;
+    margin: 2%;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    background-color: rgba(0, 0, 0, .5);
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;  
+    object-fit: cover; 
+    position: relative;
+    z-index: 50;
+    cursor: pointer;
+}
+
+
+.img_containter{
+    object-fit:cover;
+    width: 100.5%;
+    height: 35vh;
+    min-height: 150px;
+    z-index: 10000;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1),rgba(0, 0, 0, .9) 15%, rgba(0, 0, 0, .7) 30%, rgba(0, 0, 0, 0) 70%);
+}
+
+.img_containter_mobile{
+    object-fit:cover;
+    width: 100%;
+    height: 35vh;
+    margin-bottom: -2px;
+    z-index: 10000;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1),rgba(0, 0, 0, .9) 15%, rgba(0, 0, 0, .7) 30%, rgba(0, 0, 0, 0) 70%);
+}
+
+.gallery_image{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.gallery_cover{
+    position: absolute;
+    margin: auto;
+    top: 0; left: 0; bottom: 0%; right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.gallery_display_mobile{
+    min-width: 200px;
+    width: 75%;
+    margin: 2%;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    background-color: rgba(0, 0, 0, .5);
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;   
+    position: relative;
+    z-index: 50;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+
+.viewer{
+    position: absolute;
+    width: 84%;
+    height: 84vh;
+    display: none;
+    background-color:black;
+    left:50%;
+    top:50%;
+    margin:0 auto;
+    margin-left:-42%;
+    margin-top:-42vh;
+    z-index: 10;
+    font-size: 0;
+}
+
+.viewer_mobile{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    background-color:black;
+    left:50%;
+    top:50%;
+    margin:0 auto;
+    margin-left:-50%;
+    margin-top:-50vh;
+    z-index: 10;
+    font-size: 0;
+}
+
+.left_scroll{
+width: 7%;
+height: 100%;
+background-color: #05bddf;
+margin: 0;
+padding: 0;
+display: inline-block;
+transition: 0.5s;
+cursor: pointer;
+}
+
+.left_scroll:hover{
+    background-color: #024e5c;
+    }
+
+.right_scroll{
+    width: 7%;
+    height: 100%;
+    background-color: #e6342a;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.left_scroll_mobile{
+    position: absolute;
+    left: 0%; top: 0%;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    transition: 0.5s;
+    cursor: pointer;
+    z-index: 10000;
+    }
+
+.right_scroll_mobile{
+    position:absolute;
+    background-color: transparent;
+    left: 50%; top: 0;
+    margin-top: 0;
+    width: 50%;
+    height: 100%;
+    transition: 0.5s;
+    cursor: pointer;
+    z-index: 100000;
+    text-align: right;
+}
+
+.return_mobile{
+    width: 100%;
+    height: 5%;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    transition: 0.5s;
+    cursor: pointer;
+    text-align: right;
+    object-fit: contain;
+    z-index: 1000000000;
+}
+
+.return_x{
+    height: 5%;
+    object-fit: contain;
+    z-index: 1000000000;
+    right: 0;
+
+}
+
+.return_x_img{
+height: 100%;
+z-index: 1000000000;
+
+}
+
+.right_scroll:hover{
+    background-color: #5c1612;
+}
+
+.picture_box1{
+    width: 86%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+    background-color: black;
+    z-index: 100;
+}
+
+.picture_box1_mobile{
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+    background-color: black;
+    z-index: 100;
+    position: relative;
+}
+
+.viewer_img{
+    width: 86%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left:7%;
+    margin-right:7%;
+    background-color: black;
+}
+
+.viewer_img_mobile{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left:0%;
+    margin-right:0%;
+    background-color: black;
+}

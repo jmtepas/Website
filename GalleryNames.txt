@@ -1,0 +1,9 @@
+Flying High, 3
+Touching the Sun, 3
+High Altitude, 3
+Turbulence, 3
+Rough Air,3
+Smooth Skies,3
+Takeoff,3
+Landing,3
+Soaring,3

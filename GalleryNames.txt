@@ -1,2 +1,4 @@
 China, 8
 Alesund, 6
+Alaska, 10
+Banner Towing, 11

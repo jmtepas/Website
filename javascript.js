@@ -78,8 +78,8 @@ function set_up_home(){
     var proceed = true
     var x = 1
     while(proceed == true){
-        var path1 = "home/" + x.toString() + ".jpg"
-        var path2 = "home/" + x.toString() + ".png"
+        var path1 = "home/" + x.toString() + ".JPG"
+        var path2 = "home/" + x.toString() + ".jpeg"
         var proceed2 = true
         if(check_src(path1) !=true && check_src(path2) !=true){
             proceed = false
@@ -105,8 +105,8 @@ function set_up_gallery(callback){
         var temp_limit = parseInt(gallery_names[x*2+1])
         for(var y = 0; y<temp_limit; y++){
             var y_temp = y +1
-            var path21 = path + "/" +  y_temp.toString() + ".png"
-            var path22 = path + "/" +  y_temp.toString() + ".jpg"
+            var path21 = path + "/" +  y_temp.toString() + ".jpeg"
+            var path22 = path + "/" +  y_temp.toString() + ".JPG"
             if(check_src(path21)==true){
                 all_img_list[x].push(path21)
             }

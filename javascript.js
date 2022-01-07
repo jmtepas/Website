@@ -1,7 +1,7 @@
 var gallery_names = ["Soaring",3,"Flying",3, "Something",3]
 var home_img_list = []
 var all_img_list = []
-var all_img_list = [["home/1.jpg","home/2.jpg","home/3.jpg"],["home/2.jpg","home/3.jpg","home/1.jpg"],["home/1.jpg","home/2.jpg","home/3.jpg"]]
+var all_img_list = [["home/1.jpeg","home/1.jpeg","home/1.jpeg","home/1.jpeg","home/1.jpeg","home/1.jpeg"],["home/2.JPG","home/2.JPG","home/2.JPG","home/2.JPG","home/2.JPG","home/2.JPG"],["home/3.jpeg","home/3.jpeg","home/3.jpeg"]]
 var img_list = []
 var viewer_on
 
@@ -80,12 +80,17 @@ function set_up_home(){
     while(proceed == true){
         var path1 = "home/" + x.toString() + ".JPG"
         var path2 = "home/" + x.toString() + ".jpeg"
+
         var proceed2 = true
-        if(check_src(path1) !=true && check_src(path2) !=true){
+        
+        var temp1 = check_src(path1)
+        var temp2 = check_src(path2)
+       
+        if(temp1 !=true && temp2 !=true){
             proceed = false
             break
         }
-        else if(check_src(path1) ==true ){
+        else if(temp1 ==true ){
             home_img_list.push(path1)
         }
         else{
@@ -93,6 +98,8 @@ function set_up_home(){
         }
         x++
     }
+    jQuery("#home_img1").attr("src", home_img_list[0])
+    jQuery("#home_img2").attr("src", home_img_list[1])
 }
 
 function set_up_gallery(callback){
@@ -105,14 +112,17 @@ function set_up_gallery(callback){
         var temp_limit = parseInt(gallery_names[x*2+1])
         for(var y = 0; y<temp_limit; y++){
             var y_temp = y +1
-            var path21 = path + "/" +  y_temp.toString() + ".jpeg"
-            var path22 = path + "/" +  y_temp.toString() + ".JPG"
-            if(check_src(path21)==true){
-                all_img_list[x].push(path21)
+            var path2 = path + "/" +  y_temp.toString() + ".JPG"
+            var path3 = path + "/" +  y_temp.toString() + ".jpeg"
+
+            var temp2 = check_src(path2)
+
+            if(temp2 ==true ){
+                all_img_list[x].push(path2)
             }
             else{
-                all_img_list[x].push(path22)
-            } 
+                all_img_list[x].push(path3)
+            }
         }
     }
     var end = new Date()
@@ -262,9 +272,11 @@ jQuery(document).on('click', '.gallery_display', function(){
         jQuery("#viewer_img1").css("z-index", "50")
     jQuery("#viewer_img2").css("z-index", "100")
     jQuery("#viewer_img3").css("z-index", "25")
-    jQuery("#gallery").fadeTo(500,0.1)
+    jQuery("#viewer1").fadeTo(0,1)
+    jQuery("#gallery").fadeTo(0,0, function(){
+        jQuery("#viewer1").css("z-index", 1000000000000)
+    })
     jQuery('html, body').css('overflowY', 'hidden');
-    jQuery("#viewer1").fadeTo(500,1)
     viewer_on = true
     var id1 = jQuery(this).attr('id')
     var clicked_id = id1.replace("gallery_","")
@@ -277,11 +289,14 @@ jQuery(document).on('click', '.gallery_display', function(){
     }
 })
 
-jQuery("#gallery").on('click', function(){
+jQuery("#x3").on('click', function(){
     if(viewer_on == true){
-    jQuery("#gallery").fadeTo(500,1)
-    jQuery("#viewer1").fadeTo(500, 0, function(){
-        jQuery('body').css('overflowY', 'scroll');
+    jQuery("#gallery").fadeTo(0,1)
+    jQuery("#viewer1").fadeTo(0,0,  function(){
+        jQuery("#viewer1").css("z-index", -10000000000000)
+        if(jQuery(document).height()>jQuery(window).height()){
+           jQuery('html, body').css('overflowY', 'auto');
+        }
         viewer_on = false
         })
     }
@@ -293,7 +308,7 @@ var ok_click = true
 var current_pic = 0
 var image_list = []
 
-jQuery("#right_scroll").on('click', function(){
+jQuery("#right_click").on('click', function(){
     if(ok_click == true){
     ok_click = false
     jQuery(image_list[0][0]).css("z-index","25")
@@ -313,7 +328,7 @@ jQuery("#right_scroll").on('click', function(){
     }
 })
 
-jQuery("#left_scroll").on('click', function(){
+jQuery("#left_click").on('click', function(){
     if(ok_click == true){
         ok_click = false
         jQuery(image_list[2][0]).css("z-index","25")
@@ -334,6 +349,7 @@ jQuery("#left_scroll").on('click', function(){
                 ok_click = true
             })
         })
+
     }
 })
 
@@ -424,9 +440,11 @@ jQuery(document).on('click', '.gallery_display_mobile', function(){
         jQuery("#viewer_img1_mobile").css("z-index", "50")
         jQuery("#viewer_img2_mobile").css("z-index", "100")
         jQuery("#viewer_img3_mobile").css("z-index", "25")
-    jQuery("#gallery").fadeTo(500,0.1)
+        jQuery("#viewer1_mobile").fadeTo(0,1)
+    jQuery("#gallery").fadeTo(0,0, function(){
+        jQuery("#viewer1_mobile").css("z-index", 100000000000)
+    })
     jQuery('html, body').css('overflowY', 'hidden');
-    jQuery("#viewer1_mobile").fadeTo(500,1)
     viewer_on = true
     var id1 = jQuery(this).attr('id')
     var clicked_id = id1.replace("gallery_","")
@@ -441,9 +459,12 @@ jQuery(document).on('click', '.gallery_display_mobile', function(){
 
 jQuery("#return_x").on('click', function(){
     if(viewer_on == true){
-    jQuery("#gallery").fadeTo(500,1)
-    jQuery("#viewer1_mobile").fadeTo(500, 0, function(){
-        jQuery('body').css('overflowY', 'scroll');
+    jQuery("#gallery").fadeTo(0,1)
+    jQuery("#viewer1_mobile").fadeOut(0, function(){
+        jQuery("#viewer1_mobile").css("z-index", -100000000000)
+        if(jQuery(document).height()>jQuery(window).height()){
+            jQuery('html, body').css('overflowY', 'auto');
+        }
         viewer_on = false
         })
     }

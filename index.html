@@ -1,7 +1,7 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="css.css">   
 <html>
-    <body onload="initialize()">
+    <body onload="initialize1()">
         <div class="loader_page" id="loader_page">
             <img id="loading_page" class="loading_page"  src="logos/propeller.gif">
             <img id="loading_page_mobile" class="loading_page_mobile"  src="logos/propeller.gif">
@@ -20,8 +20,13 @@
 
         </div>
         <div class="viewer" id="viewer1">
-            <div id="left_scroll" class="left_scroll">
+            <div id="fill_left" class="filler">
 
+            </div>
+            <div id="left_scroll" class="left_scroll">
+                <div class="arrow_color" id="left_click">
+                    <img src="logos/left.png" class="arrow">
+                </div>
             </div>
             <div id="picture_box" class="picture_box1">
                 <img id="viewer_img1" style="z-index:50" src="home/1.jpeg" class="viewer_img" onerror="this.onerror=null;this.src='error.png';">
@@ -30,7 +35,14 @@
 
             </div>
             <div id="right_scroll" class="right_scroll">
-                
+                <div class="arrow_color" id="right_click">
+                    <img src="logos/right.png" class="arrow">
+                </div>
+            </div>
+            <div id="fill_right" class="filler">
+                <div id="x3" class="x3">
+                    <img src="logos/x2.png" class="x2" alt="">
+                </div>
             </div>
         </div>
         <div class="viewer_mobile" id="viewer1_mobile">

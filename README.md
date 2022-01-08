@@ -1,20 +1,59 @@
-Photography Website designed by Ken DeBacker
+Personal Photography Website Template made by Ken DeBacker
 
 Instructions for use:
 
 There are three aspects to edit, the GalleryNames.txt file, the "galleries" folder, and the "home" folder.
 
+
 1. GalleryNames.txt
+                
+                a. Put the text you would like displayed on the home page button on the first line after "Home Button Text:".
+                
+                b. On the 3rd line, if you would like a logo put "True" after "Logo:", if you don't want a logo image included,
+                  
+                    put "False". If you would like a logo, upload your personal logo into the "logos" folder, label the home page logo
+                    
+                    "logo1" and the gallery page logo "logo2." 
+                    
+                    IMPORTANT NOTE: Logo images must be in ".png" file form.
+                    
+                c. List the image types (not counting "png" for the logos if none of your other images are of the .png type) you are going to 
+                
+                    upload after "Image Types (Don't include the "."):" on the 5th line, make sure to seperate them with a comma, and do not
+                    
+                    include the "." in the image type.    
 
-                For each gallery, put the name of the gallery followed by a comma and then the number of photos in the gallery           
+                d. For each gallery, put the name of the gallery followed by a comma and then the number of photos in the gallery           
 
-                Each gallery should have its own row, for example
+                    Each gallery should have its own row, for example
 
                             Chicago, 3
                             New York, 7
                             Boston, 10
 
-                Will make three galleries, named "Chicago", "New York", and "Boston", which contain 3,7,and 10 photos respectively.
+                    Will make three galleries, named "Chicago", "New York", and "Boston", which contain 3,7,and 10 photos respectively.
+                    
+                    Start these gallery rows on the line directly under "Galleries (put them immediately below this line):"
+                    
+                    IMPORTANT NOTE: Please do not include commas in your gallery titles, as this will cause an error.
+                    
+               e. An example of a correctly done GalleryNames.txt setup file is shown below:
+               
+                     Home Button Text: Welcome to My Webpage!
+                     -----------------------------------
+                     Logo: True
+                     -----------------------------------
+                     Image Types (Don't include the "."): png, jpg, jpeg
+                     ------------------------------------
+                     Galleries (put them immediately below this line):
+                     Yosemite, 10
+                     Half Moon Beach, 5
+                     Long Island, 15
+                     Boston, 5
+                     Wisconsin Camping, 7
+                     Salmon Fishing, 25
+               
+               
                 
 
 2. "galleries" folder
@@ -42,9 +81,7 @@ There are three aspects to edit, the GalleryNames.txt file, the "galleries" fold
                 
                 additional image, note that the image "1" will be the first image shown in addition to the image displayed as the 
                 
-                face of the gallery. 
-                
-                NOTE: images must be .jpg or .png
+                face of the gallery.                 
                 
                 
 3. "home" folder

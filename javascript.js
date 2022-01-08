@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("loading_page_mobile").style.display = "none"
         setTimeout("document.getElementById('loading_page').src=document.getElementById('loading_page').src",10)
     }
+    initialize()
 })
 
 function go_gallery(){

@@ -285,7 +285,7 @@ jQuery(document).on('click', '.gallery_display', function(){
     jQuery("#viewer_img2").css("z-index", "100")
     jQuery("#viewer_img3").css("z-index", "25")
     jQuery("#viewer1").fadeTo(0,1)
-    jQuery("#gallery").fadeTo(0,0, function(){
+    jQuery("#gallery").fadeTo(250,0, function(){
         jQuery("#viewer1").css("z-index", 1000000000000)
     })
     jQuery('html, body').css('overflowY', 'hidden');
@@ -306,7 +306,7 @@ jQuery(document).on('click', '.gallery_display', function(){
 jQuery("#x3").on('click', function(){
     if(viewer_on == true){
     jQuery("#gallery").fadeTo(0,1)
-    jQuery("#viewer1").fadeTo(0,0,  function(){
+    jQuery("#viewer1").fadeTo(250,0,  function(){
         jQuery("#viewer1").css("z-index", -10000000000000)
         if(jQuery(document).height()>jQuery(window).height()){
            jQuery('html, body').css('overflowY', 'auto');
@@ -455,7 +455,7 @@ jQuery(document).on('click', '.gallery_display_mobile', function(){
         jQuery("#viewer_img2_mobile").css("z-index", "100")
         jQuery("#viewer_img3_mobile").css("z-index", "25")
         jQuery("#viewer1_mobile").fadeTo(0,1)
-    jQuery("#gallery").fadeTo(0,0, function(){
+    jQuery("#gallery").fadeTo(250,0, function(){
         jQuery("#viewer1_mobile").css("z-index", 100000000000)
     })
     jQuery('html, body').css('overflowY', 'hidden');
@@ -476,7 +476,7 @@ jQuery(document).on('click', '.gallery_display_mobile', function(){
 jQuery("#return_x").on('click', function(){
     if(viewer_on == true){
     jQuery("#gallery").fadeTo(0,1)
-    jQuery("#viewer1_mobile").fadeOut(0, function(){
+    jQuery("#viewer1_mobile").fadeOut(250, function(){
         jQuery("#viewer1_mobile").css("z-index", -100000000000)
         if(jQuery(document).height()>jQuery(window).height()){
             jQuery('html, body').css('overflowY', 'auto');

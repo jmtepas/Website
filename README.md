@@ -11,9 +11,9 @@ There are three aspects to edit, the GalleryNames.txt file, the "galleries" fold
                 
                 b. On the 3rd line, if you would like a logo put "True" after "Logo:", if you don't want a logo image included,
                   
-                    put "False". If you would like a logo, upload your personal logo into the "logos" folder, label the home page logo
+                    put "False". If you would like a logo, upload your personal logo into the "logos" folder, label the home page 
                     
-                    "logo1" and the gallery page logo "logo2." 
+                    logo "logo1" and the gallery page logo "logo2." 
                     
                     IMPORTANT NOTE: Logo images must be in ".png" file form.
                     
@@ -35,7 +35,7 @@ There are three aspects to edit, the GalleryNames.txt file, the "galleries" fold
                     
                     Start these gallery rows on the line directly under "Galleries (put them immediately below this line):"
                     
-                    IMPORTANT NOTE: Please do not include commas in your gallery titles, as this will cause an error.
+                    IMPORTANT NOTE: Do not include commas in your gallery titles, as this will cause an error.
                     
                e. An example of a correctly done GalleryNames.txt setup file is shown below:
                

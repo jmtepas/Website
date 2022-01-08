@@ -16,6 +16,7 @@ html,body{
 
 }
 
+
 .loading_page{
     position: absolute;
     width: 25%;
@@ -26,6 +27,9 @@ html,body{
     margin-left:-12.5%;
     margin-top:-12.5%;
     z-index: 10000000000;
+    -webkit-animation: prop1 3s linear infinite;
+    -moz-animation: prop1 3s linear infinite;
+    animation: prop1 3s linear infinite;
 }
 
 .loading_page_mobile{
@@ -38,6 +42,24 @@ html,body{
     margin-left:-37.5%;
     margin-top:-37.5%;
     z-index: 10000000000;
+    -webkit-animation: prop1 3s linear infinite;
+    -moz-animation: prop1 3s linear infinite;
+    animation: prop1 3s linear infinite;
+}
+
+@-moz-keyframes prop1 {
+    100% {-moz-transform: rotate(360deg);}
+}
+
+@-webkit-keyframes prop1{
+    100% {-webkit-transform: rotate(360deg);}
+}
+
+@keyframes prop1{
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 .home_img{

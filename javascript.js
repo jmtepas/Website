@@ -4,13 +4,16 @@ var all_img_list = []
 var all_img_list = [["home/1.jpeg","home/1.jpeg","home/1.jpeg","home/1.jpeg","home/1.jpeg","home/1.jpeg"],["home/2.JPG","home/2.JPG","home/2.JPG","home/2.JPG","home/2.JPG","home/2.JPG"],["home/3.jpeg","home/3.jpeg","home/3.jpeg"]]
 var img_list = []
 var viewer_on
+var image_types = []
 
 document.addEventListener("DOMContentLoaded", function(){
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         document.getElementById("loading_page").style.display = "none"
+        setTimeout("document.getElementById('loading_page_mobile').src=document.getElementById('loading_page_mobile').src",10)
     }
     else{
         document.getElementById("loading_page_mobile").style.display = "none"
+        setTimeout("document.getElementById('loading_page').src=document.getElementById('loading_page').src",10)
     }
 })
 
@@ -78,33 +81,28 @@ function set_up_home(){
     var proceed = true
     var x = 1
     while(proceed == true){
-        var path1 = "home/" + x.toString() + ".JPG"
-        var path2 = "home/" + x.toString() + ".jpeg"
-
-        var proceed2 = true
-        
-        var temp1 = check_src(path1)
-        var temp2 = check_src(path2)
-       
-        if(temp1 !=true && temp2 !=true){
-            proceed = false
-            break
-        }
-        else if(temp1 ==true ){
-            home_img_list.push(path1)
-        }
-        else{
-            home_img_list.push(path2)
+        for(var y=0; y<image_types.length; y++){
+            var path1 = "home/" + x.toString() + "." + image_types[y].replace(" ","")
+            if(check_src(path1)==true){
+                home_img_list.push(path1)
+                if(x ==1){
+                    jQuery("#home_img1").attr("src", path1)
+                }else if(x==2){
+                    jQuery("#home_img2").attr("src", path1)
+                }
+                break 
+            }
+            else if(y == image_types.length -1){
+                proceed = false
+            }
         }
         x++
     }
-    jQuery("#home_img1").attr("src", home_img_list[0])
-    jQuery("#home_img2").attr("src", home_img_list[1])
+    
 }
 
 function set_up_gallery(callback){
     all_img_list = []
-    var start = new Date(); 
     for(var x = 0; x<gallery_names.length/2; x++){
         var x_temp = x +1
         var path = "galleries/gallery_" + x_temp.toString()
@@ -112,20 +110,21 @@ function set_up_gallery(callback){
         var temp_limit = parseInt(gallery_names[x*2+1])
         for(var y = 0; y<temp_limit; y++){
             var y_temp = y +1
-            var path2 = path + "/" +  y_temp.toString() + ".JPG"
-            var path3 = path + "/" +  y_temp.toString() + ".jpeg"
-
-            var temp2 = check_src(path2)
-
-            if(temp2 ==true ){
-                all_img_list[x].push(path2)
+            var found = false
+            for(var z=0; z<image_types.length-1; z++){
+                var path1 = path + "/" +  y_temp.toString()+"." + image_types[z].replace(" ","")
+                if(check_src(path1)==true){
+                    all_img_list[x].push(path1)
+                    found = true
+                    break 
+                }
             }
-            else{
-                all_img_list[x].push(path3)
+            if(found ==false){
+                var path1 = path + "/" +  y_temp.toString() +"." + image_types[image_types.length-1].replace(" ","")
+                all_img_list[x].push(path1)
             }
         }
     }
-    var end = new Date()
     callback()
 }
 
@@ -184,14 +183,26 @@ function retrieve_names(callback){
              alert("Problem Loading Gallery Names")
         },
         success: function(names){
-            names = names.replace(" ", "")
             var names1 = names.split("\n");
+            var home_text = names1[0].split("Button Text:")[1]
+            document.getElementById("home_button").innerHTML = home_text
+            var logo_text = names1[2].split(":")[1]
+            logo_text = logo_text.replace(" ", "")
+            if(logo_text=="False" || logo_text =="FALSE" || logo_text =="false"){
+                document.getElementById("home_logo1").style.display = "none"
+                document.getElementById("gal_logo").style.display = "none"
+            }
+            image_types = names1[4].split(":")[1].split(",")
             var total1 = []
-            for(var x = 0; x<names1.length; x++){
+            for(var x = 7; x<names1.length; x++){
                 var temp = names1[x].split(",")
                 for(var y = 0; y<temp.length; y++){
                     if(temp[y] != "" && temp[y]!=' '){
-                        total1.push(temp[y])
+                        var temp2 = temp[y]
+                        if(y==1){
+                            temp2 =temp2.replace(" ","")
+                        }
+                        total1.push(temp2)
                     }
                 }
             }
@@ -207,7 +218,6 @@ function retrieve_names(callback){
 var mobile = false
 var viewheight
 function initialize(){
-    set_up_home()
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         mobile = true
         viewheight = parseInt(window.innerHeight)
@@ -220,6 +230,7 @@ function initialize(){
         document.getElementById("viewer1").style.display = "none"
         setTimeout(function () {
             retrieve_names(function(){
+                set_up_home()
                 set_up_gallery(function(){
                     gallery_initialize_mobile(function(){
                         launcher()
@@ -233,6 +244,7 @@ function initialize(){
         mobile = false
         setTimeout(function () {
             retrieve_names(function(){
+                set_up_home()
                 set_up_gallery(function(){
                     gallery_initialize(function(){
                         launcher()
@@ -246,7 +258,7 @@ function initialize(){
 
 
 function initialize1(){
-    mobile = true
+   // mobile = true
     viewheight = parseInt(window.innerHeight)
     //document.getElementById("viewer1_mobile").style.height = viewheight.toString() + "px"
         document.getElementById("viewer1_mobile").style.marginTop = (-1 * viewheight/2).toString() + "px"
@@ -256,13 +268,13 @@ function initialize1(){
     //document.getElementById("home_button").className="home_button_mobile"
     //document.getElementById("viewer1").style.display = "none"
     //document.getElementById("loading_page").className="loading_page_mobile"
-    home_changer()
+    //home_changer()
 
-        gallery_initialize(function(){
-            jQuery("#loading_page").delay(1000).fadeTo(1,1, function(){
-                launcher()
-            })
-        })
+     //  gallery_initialize(function(){
+     //       jQuery("#loading_page").delay(1000).fadeTo(1,1, function(){
+     //           launcher()
+      //      })
+    //    })
 
 }
 
@@ -286,6 +298,8 @@ jQuery(document).on('click', '.gallery_display', function(){
     for(var x = 0; x < image_list.length; x++){
         jQuery(image_list[x][0]).attr("src",img_list[image_list[x][1]])
     }
+    jQuery("#viewer_img3").hide().show()
+    jQuery("#viewer_img1").hide().show()
     }
 })
 
@@ -454,6 +468,8 @@ jQuery(document).on('click', '.gallery_display_mobile', function(){
     for(var x = 0; x < image_list.length; x++){
         jQuery(image_list[x][0]).attr("src",img_list[image_list[x][1]])
     }
+    jQuery("#viewer_img3").hide().show()
+    jQuery("#viewer_img1").hide().show()
     }
 })
 

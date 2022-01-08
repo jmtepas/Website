@@ -1,3 +1,10 @@
+Home Button Text: Let's Take Flight
+-----------------------------------
+Logo: True
+-----------------------------------
+Image Types (Don't include the "."): jpeg, JPG
+------------------------------------
+Galleries (put them immediately below this line):
 China, 8
 Alesund, 6
 Alaska, 10

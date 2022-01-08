@@ -98,7 +98,6 @@ function set_up_home(){
         }
         x++
     }
-    
 }
 
 function set_up_gallery(callback){

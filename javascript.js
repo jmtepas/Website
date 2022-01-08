@@ -328,7 +328,7 @@ jQuery("#right_click").on('click', function(){
     jQuery(image_list[2][0]).css("z-index","50")
     image_list[0][1]  = (image_list[0][1] + 3)%img_list.length
     jQuery(image_list[0][0]).attr("src",img_list[image_list[0][1]])
-    jQuery(image_list[1][0]).fadeTo(500,0, function(){
+    jQuery(image_list[1][0]).fadeTo(250,0, function(){
         jQuery(image_list[2][0]).css("z-index","100")
         jQuery(image_list[1][0]).css("z-index","50")
         jQuery(image_list[1][0]).fadeTo(0,1, function(){
@@ -352,7 +352,7 @@ jQuery("#left_click").on('click', function(){
             image_list[2][1] =img_list.length -1
         }
         jQuery(image_list[2][0]).attr("src",img_list[image_list[2][1]])
-        jQuery(image_list[1][0]).fadeTo(500,0, function(){
+        jQuery(image_list[1][0]).fadeTo(250,0, function(){
             jQuery(image_list[0][0]).css("z-index","100")
             jQuery(image_list[1][0]).css("z-index","50")
             jQuery(image_list[1][0]).fadeTo(0,1, function(){
@@ -411,7 +411,7 @@ jQuery("#right_scroll_mobile").on('click', function(){
     jQuery(image_list[2][0]).css("z-index","50")
     image_list[0][1]  = (image_list[0][1] + 3)%img_list.length
     jQuery(image_list[0][0]).attr("src",img_list[image_list[0][1]])
-    jQuery(image_list[1][0]).fadeTo(500,0, function(){
+    jQuery(image_list[1][0]).fadeTo(250,0, function(){
         jQuery(image_list[2][0]).css("z-index","100")
         jQuery(image_list[1][0]).css("z-index","50")
         jQuery(image_list[1][0]).fadeTo(0,1, function(){
@@ -435,7 +435,7 @@ jQuery("#left_scroll_mobile").on('click', function(){
             image_list[2][1] =img_list.length -1
         }
         jQuery(image_list[2][0]).attr("src",img_list[image_list[2][1]])
-        jQuery(image_list[1][0]).fadeTo(500,0, function(){
+        jQuery(image_list[1][0]).fadeTo(250,0, function(){
             jQuery(image_list[0][0]).css("z-index","100")
             jQuery(image_list[1][0]).css("z-index","50")
             jQuery(image_list[1][0]).fadeTo(0,1, function(){

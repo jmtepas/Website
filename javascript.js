@@ -476,7 +476,7 @@ jQuery(document).on('click', '.gallery_display_mobile', function(){
 jQuery("#return_x").on('click', function(){
     if(viewer_on == true){
     jQuery("#gallery").fadeTo(0,1)
-    jQuery("#viewer1_mobile").fadeOut(250, function(){
+    jQuery("#viewer1_mobile").fadeTo(250,0, function(){
         jQuery("#viewer1_mobile").css("z-index", -100000000000)
         if(jQuery(document).height()>jQuery(window).height()){
             jQuery('html, body').css('overflowY', 'auto');

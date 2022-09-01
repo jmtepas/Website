@@ -24,10 +24,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 const go_gallery=()=>{
     current_pic = 0
-    $("#gallery").fadeIn(0).fadeTo(0,0)
-    $("#home").fadeOut(500, ()=>{
-        $('html, body').css('overflowY', 'auto');
-        $("#gallery").fadeTo(500,1)
+    jQuery("#gallery").fadeIn(0).fadeTo(0,0)
+    jQuery("#home").fadeOut(500, ()=>{
+        jQuery('html, body').css('overflowY', 'auto');
+        jQuery("#gallery").fadeTo(500,1)
         viewer_on = false 
         on_home = false
     })
@@ -35,7 +35,7 @@ const go_gallery=()=>{
 
 const check_src = (src1)=>{
     let ok = true
-    $.ajax({
+    jQuery.ajax({
         url: src1,
         type: "HEAD",
         async: false,
@@ -52,24 +52,24 @@ const check_src = (src1)=>{
 const home_changer=()=>{
     if(on_home === true){
         if(home_img==="#home_img1"){
-            $(home_img).delay(7000).fadeTo(2000,0,()=>{
+            jQuery(home_img).delay(7000).fadeTo(2000,0,()=>{
                 home_pic = (home_pic + 2)%home_img_list.length
-                $(home_img).attr("src", home_img_list[home_pic])
-                $(home_img).css("z-index", 25)
-                $(home_img).fadeTo(0,1, ()=>{
+                jQuery(home_img).attr("src", home_img_list[home_pic])
+                jQuery(home_img).css("z-index", 25)
+                jQuery(home_img).fadeTo(0,1, ()=>{
                     home_img = "#home_img2"
-                    $(home_img).css("z-index", 50)
+                    jQuery(home_img).css("z-index", 50)
                     home_changer()
                 })
             })
         }else{
-            $(home_img).delay(7000).fadeTo(2000,0,()=>{
+            jQuery(home_img).delay(7000).fadeTo(2000,0,()=>{
                 home_pic = (home_pic + 2)%home_img_list.length
-                $(home_img).attr("src", home_img_list[home_pic])
-                $(home_img).css("z-index", 25)
-                $(home_img).fadeTo(0,1, ()=>{
+                jQuery(home_img).attr("src", home_img_list[home_pic])
+                jQuery(home_img).css("z-index", 25)
+                jQuery(home_img).fadeTo(0,1, ()=>{
                     home_img = "#home_img1"
-                    $(home_img).css("z-index", 50)
+                    jQuery(home_img).css("z-index", 50)
                     home_changer()
                 })
             })
@@ -86,9 +86,9 @@ const set_up_home = ()=>{
             if(check_src(path1)===true){
                 home_img_list.push(path1)
                 if(x ===1){
-                    $("#home_img1").attr("src", path1)
+                    jQuery("#home_img1").attr("src", path1)
                 }else if(x===2){
-                    $("#home_img2").attr("src", path1)
+                    jQuery("#home_img2").attr("src", path1)
                 }
                 break 
             }
@@ -157,24 +157,24 @@ const gallery_initialize = (callback)=>{
     div = document.createElement('div')
     div.className = "spacer"
     parent.appendChild(div)
-    $("#gallery").css("min-height", $(window.top).height())
+    jQuery("#gallery").css("min-height", jQuery(window.top).height())
     callback()
 }
 
 const launcher=()=>{
-    $("#loader_page").fadeOut(0, ()=>{
-        $("#home").fadeTo(3000,1, ()=>{
+    jQuery("#loader_page").fadeOut(0, ()=>{
+        jQuery("#home").fadeTo(3000,1, ()=>{
             home_changer()
         })
     })
 }
 
-$(window).resize(()=>{
-    $("#gallery").css("min-height", $(window.top).height())
+jQuery(window).resize(()=>{
+    jQuery("#gallery").css("min-height", jQuery(window.top).height())
 })
 
 const retrieve_names = (callback)=>{
-    $.ajax({
+    jQuery.ajax({
         url: "GalleryNames.txt",
         type: "GET",
         async: false,
@@ -257,37 +257,37 @@ const initialize1 =()=>{
 }
 
 
-$(document).on('click', '.gallery_display', ()=>{
+jQuery(document).on('click', '.gallery_display', ()=>{
     if(viewer_on===false){
-        $("#viewer_img1").css("z-index", "50")
-    $("#viewer_img2").css("z-index", "100")
-    $("#viewer_img3").css("z-index", "25")
-    $("#viewer1").fadeTo(0,1)
-    $("#gallery").fadeTo(250,0, ()=>{
-        $("#viewer1").css("z-index", 1000000000000)
+        jQuery("#viewer_img1").css("z-index", "50")
+    jQuery("#viewer_img2").css("z-index", "100")
+    jQuery("#viewer_img3").css("z-index", "25")
+    jQuery("#viewer1").fadeTo(0,1)
+    jQuery("#gallery").fadeTo(250,0, ()=>{
+        jQuery("#viewer1").css("z-index", 1000000000000)
     })
-    $('html, body').css('overflowY', 'hidden');
+    jQuery('html, body').css('overflowY', 'hidden');
     viewer_on = true
-    let id1 = $(this).attr('id')
+    let id1 = jQuery(this).attr('id')
     let clicked_id = id1.replace("gallery_","")
     let z = parseInt(clicked_id)-1
     img_list = all_img_list[z]
     image_list = [["#viewer_img3",img_list.length-1],["#viewer_img2",0],["#viewer_img1",1]]
     for(let x = 0; x < image_list.length; x++){
-        $(image_list[x][0]).attr("src",img_list[image_list[x][1]])
+        jQuery(image_list[x][0]).attr("src",img_list[image_list[x][1]])
     }
-    $("#viewer_img3").hide().show()
-    $("#viewer_img1").hide().show()
+    jQuery("#viewer_img3").hide().show()
+    jQuery("#viewer_img1").hide().show()
     }
 })
 
-$("#x3").on('click', ()=>{
+jQuery("#x3").on('click', ()=>{
     if(viewer_on === true){
-    $("#gallery").fadeTo(0,1)
-    $("#viewer1").fadeTo(250,0,  ()=>{
-        $("#viewer1").css("z-index", -10000000000000)
-        if($(document).height()>$(window).height()){
-           $('html, body').css('overflowY', 'auto');
+    jQuery("#gallery").fadeTo(0,1)
+    jQuery("#viewer1").fadeTo(250,0,  ()=>{
+        jQuery("#viewer1").css("z-index", -10000000000000)
+        if(jQuery(document).height()>jQuery(window).height()){
+           jQuery('html, body').css('overflowY', 'auto');
         }
         viewer_on = false
         })
@@ -300,17 +300,17 @@ let ok_click = true
 let current_pic = 0
 let image_list = []
 
-$("#right_click").on('click', ()=>{
+jQuery("#right_click").on('click', ()=>{
     if(ok_click === true){
     ok_click = false
-    $(image_list[0][0]).css("z-index","25")
-    $(image_list[2][0]).css("z-index","50")
+    jQuery(image_list[0][0]).css("z-index","25")
+    jQuery(image_list[2][0]).css("z-index","50")
     image_list[0][1]  = (image_list[0][1] + 3)%img_list.length
-    $(image_list[0][0]).attr("src",img_list[image_list[0][1]])
-    $(image_list[1][0]).fadeTo(250,0, ()=>{
-        $(image_list[2][0]).css("z-index","100")
-        $(image_list[1][0]).css("z-index","50")
-        $(image_list[1][0]).fadeTo(0,1, ()=>{
+    jQuery(image_list[0][0]).attr("src",img_list[image_list[0][1]])
+    jQuery(image_list[1][0]).fadeTo(250,0, ()=>{
+        jQuery(image_list[2][0]).css("z-index","100")
+        jQuery(image_list[1][0]).css("z-index","50")
+        jQuery(image_list[1][0]).fadeTo(0,1, ()=>{
         temp_img = image_list[0]
         image_list.push(temp_img)
         image_list.shift()
@@ -320,21 +320,21 @@ $("#right_click").on('click', ()=>{
     }
 })
 
-$("#left_click").on('click', ()=>{
+jQuery("#left_click").on('click', ()=>{
     if(ok_click === true){
         ok_click = false
-        $(image_list[2][0]).css("z-index","25")
-        $(image_list[0][0]).css("z-index","50")
+        jQuery(image_list[2][0]).css("z-index","25")
+        jQuery(image_list[0][0]).css("z-index","50")
         if(image_list[0][1] - 1 >= 0){
         image_list[2][1] = image_list[0][1] - 1
         }else if(image_list[0][1] - 1 === -1){
             image_list[2][1] =img_list.length -1
         }
-        $(image_list[2][0]).attr("src",img_list[image_list[2][1]])
-        $(image_list[1][0]).fadeTo(250,0, ()=>{
-            $(image_list[0][0]).css("z-index","100")
-            $(image_list[1][0]).css("z-index","50")
-            $(image_list[1][0]).fadeTo(0,1, ()=>{
+        jQuery(image_list[2][0]).attr("src",img_list[image_list[2][1]])
+        jQuery(image_list[1][0]).fadeTo(250,0, ()=>{
+            jQuery(image_list[0][0]).css("z-index","100")
+            jQuery(image_list[1][0]).css("z-index","50")
+            jQuery(image_list[1][0]).fadeTo(0,1, ()=>{
                 temp_img = image_list[2]
                 image_list.unshift(temp_img)
                 image_list.pop()
@@ -378,22 +378,22 @@ const gallery_initialize_mobile=(callback)=>{
     div = document.createElement('div')
     div.className = "spacer"
     parent.appendChild(div)
-    $("#gallery").css("min-height", $(window.top).height())
+    jQuery("#gallery").css("min-height", jQuery(window.top).height())
     callback()
 }
 
 
-$("#right_scroll_mobile").on('click', ()=>{
+jQuery("#right_scroll_mobile").on('click', ()=>{
     if(ok_click === true){
     ok_click = false
-    $(image_list[0][0]).css("z-index","25")
-    $(image_list[2][0]).css("z-index","50")
+    jQuery(image_list[0][0]).css("z-index","25")
+    jQuery(image_list[2][0]).css("z-index","50")
     image_list[0][1]  = (image_list[0][1] + 3)%img_list.length
-    $(image_list[0][0]).attr("src",img_list[image_list[0][1]])
-    $(image_list[1][0]).fadeTo(250,0, ()=>{
-        $(image_list[2][0]).css("z-index","100")
-        $(image_list[1][0]).css("z-index","50")
-        $(image_list[1][0]).fadeTo(0,1, ()=>{
+    jQuery(image_list[0][0]).attr("src",img_list[image_list[0][1]])
+    jQuery(image_list[1][0]).fadeTo(250,0, ()=>{
+        jQuery(image_list[2][0]).css("z-index","100")
+        jQuery(image_list[1][0]).css("z-index","50")
+        jQuery(image_list[1][0]).fadeTo(0,1, ()=>{
         temp_img = image_list[0]
         image_list.push(temp_img)
         image_list.shift()
@@ -403,21 +403,21 @@ $("#right_scroll_mobile").on('click', ()=>{
     }
 })
 
-$("#left_scroll_mobile").on('click', ()=>{
+jQuery("#left_scroll_mobile").on('click', ()=>{
     if(ok_click === true){
         ok_click = false
-        $(image_list[2][0]).css("z-index","25")
-        $(image_list[0][0]).css("z-index","50")
+        jQuery(image_list[2][0]).css("z-index","25")
+        jQuery(image_list[0][0]).css("z-index","50")
         if(image_list[0][1] - 1 >= 0){
         image_list[2][1] = image_list[0][1] - 1
         }else if(image_list[0][1] - 1 === -1){
             image_list[2][1] =img_list.length -1
         }
-        $(image_list[2][0]).attr("src",img_list[image_list[2][1]])
-        $(image_list[1][0]).fadeTo(250,0, ()=>{
-            $(image_list[0][0]).css("z-index","100")
-            $(image_list[1][0]).css("z-index","50")
-            $(image_list[1][0]).fadeTo(0,1, ()=>{
+        jQuery(image_list[2][0]).attr("src",img_list[image_list[2][1]])
+        jQuery(image_list[1][0]).fadeTo(250,0, ()=>{
+            jQuery(image_list[0][0]).css("z-index","100")
+            jQuery(image_list[1][0]).css("z-index","50")
+            jQuery(image_list[1][0]).fadeTo(0,1, ()=>{
                 temp_img = image_list[2]
                 image_list.unshift(temp_img)
                 image_list.pop()
@@ -427,37 +427,37 @@ $("#left_scroll_mobile").on('click', ()=>{
     }
 })
 
-$(document).on('click', '.gallery_display_mobile', ()=>{
+jQuery(document).on('click', '.gallery_display_mobile', ()=>{
     if(viewer_on===false){
-        $("#viewer_img1_mobile").css("z-index", "50")
-        $("#viewer_img2_mobile").css("z-index", "100")
-        $("#viewer_img3_mobile").css("z-index", "25")
-        $("#viewer1_mobile").fadeTo(0,1)
-    $("#gallery").fadeTo(250,0, ()=>{
-        $("#viewer1_mobile").css("z-index", 100000000000)
+        jQuery("#viewer_img1_mobile").css("z-index", "50")
+        jQuery("#viewer_img2_mobile").css("z-index", "100")
+        jQuery("#viewer_img3_mobile").css("z-index", "25")
+        jQuery("#viewer1_mobile").fadeTo(0,1)
+    jQuery("#gallery").fadeTo(250,0, ()=>{
+        jQuery("#viewer1_mobile").css("z-index", 100000000000)
     })
-    $('html, body').css('overflowY', 'hidden');
+    jQuery('html, body').css('overflowY', 'hidden');
     viewer_on = true
-    let id1 = $(this).attr('id')
+    let id1 = jQuery(this).attr('id')
     let clicked_id = id1.replace("gallery_","")
     let z = parseInt(clicked_id)-1
     img_list = all_img_list[z]
     image_list = [["#viewer_img3_mobile",img_list.length-1],["#viewer_img2_mobile",0],["#viewer_img1_mobile",1]]
     for(let x = 0; x < image_list.length; x++){
-        $(image_list[x][0]).attr("src",img_list[image_list[x][1]])
+        jQuery(image_list[x][0]).attr("src",img_list[image_list[x][1]])
     }
-    $("#viewer_img3").hide().show()
-    $("#viewer_img1").hide().show()
+    jQuery("#viewer_img3").hide().show()
+    jQuery("#viewer_img1").hide().show()
     }
 })
 
-$("#return_x").on('click', ()=>{
+jQuery("#return_x").on('click', ()=>{
     if(viewer_on === true){
-    $("#gallery").fadeTo(0,1)
-    $("#viewer1_mobile").fadeTo(250,0, ()=>{
-        $("#viewer1_mobile").css("z-index", -100000000000)
-        if($(document).height()>$(window).height()){
-            $('html, body').css('overflowY', 'auto');
+    jQuery("#gallery").fadeTo(0,1)
+    jQuery("#viewer1_mobile").fadeTo(250,0, ()=>{
+        jQuery("#viewer1_mobile").css("z-index", -100000000000)
+        if(jQuery(document).height()>jQuery(window).height()){
+            jQuery('html, body').css('overflowY', 'auto');
         }
         viewer_on = false
         })

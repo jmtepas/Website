@@ -268,6 +268,7 @@ jQuery(document).on('click', '.gallery_display', (e)=>{
     })
     jQuery('html, body').css('overflowY', 'hidden');
     viewer_on = true
+    alert(1)
     alert(e.target.id)
     let id1 = this.id
     alert(id1)

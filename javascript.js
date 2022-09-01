@@ -252,24 +252,8 @@ const initialize=()=>{
 
 
 const initialize1 =()=>{
-   // mobile = true
     viewheight = parseInt(window.innerHeight)
-    //document.getElementById("viewer1_mobile").style.height = viewheight.toString() + "px"
-        document.getElementById("viewer1_mobile").style.marginTop = `${(-1 * viewheight/2).toString()}px`
-
-    //document.getElementById("home_logo1").className="home_logo_mobile"
-    //document.getElementById("gal_logo").className="gal_logo_mobile"
-    //document.getElementById("home_button").className="home_button_mobile"
-    //document.getElementById("viewer1").style.display = "none"
-    //document.getElementById("loading_page").className="loading_page_mobile"
-    //home_changer()
-
-     //  gallery_initialize(function(){
-     //       $("#loading_page").delay(1000).fadeTo(1,1, function(){
-     //           launcher()
-      //      })
-    //    })
-
+    document.getElementById("viewer1_mobile").style.marginTop = `${(-1 * viewheight/2).toString()}px`
 }
 
 

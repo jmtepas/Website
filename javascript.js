@@ -206,7 +206,6 @@ const retrieve_names = (callback)=>{
                 }
             }
             gallery_names = total1
-            alert(gallery_names)
         }
     });
     callback()
@@ -269,6 +268,8 @@ jQuery(document).on('click', '.gallery_display', ()=>{
     })
     jQuery('html, body').css('overflowY', 'hidden');
     viewer_on = true
+    alert(jQuery(this).attr('class'))
+    alert(jQuery(this).attr('id'))
     let id1 = jQuery(this).attr('id')
     let clicked_id = id1.replace("gallery_","")
     let z = parseInt(clicked_id)-1

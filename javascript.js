@@ -206,6 +206,7 @@ const retrieve_names = (callback)=>{
                 }
             }
             gallery_names = total1
+            alert(gallery_names)
         }
     });
     callback()

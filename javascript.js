@@ -270,8 +270,8 @@ jQuery(document).on('click', '.gallery_display', (e)=>{
     viewer_on = true
     alert(1)
     alert(e.target.id)
-    let id1 = this.id
-    alert(id1)
+    let id5 = this.id
+    alert(id5)
     let id1 = jQuery(this).attr('id')
     let clicked_id = id1.replace("gallery_","")
     let z = parseInt(clicked_id)-1

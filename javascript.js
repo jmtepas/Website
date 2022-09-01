@@ -257,7 +257,7 @@ const initialize1 =()=>{
 }
 
 
-jQuery(document).on('click', '.gallery_display', ()=>{
+jQuery(document).on('click', '.gallery_display', (e)=>{
     if(viewer_on===false){
         jQuery("#viewer_img1").css("z-index", "50")
     jQuery("#viewer_img2").css("z-index", "100")
@@ -268,8 +268,9 @@ jQuery(document).on('click', '.gallery_display', ()=>{
     })
     jQuery('html, body').css('overflowY', 'hidden');
     viewer_on = true
-    alert(jQuery(this).attr('class'))
-    alert(jQuery(this).attr('id'))
+    alert(e.target.id)
+    let id1 = this.id
+    alert(id1)
     let id1 = jQuery(this).attr('id')
     let clicked_id = id1.replace("gallery_","")
     let z = parseInt(clicked_id)-1

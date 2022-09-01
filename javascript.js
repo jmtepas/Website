@@ -257,7 +257,7 @@ const initialize1 =()=>{
 }
 
 
-jQuery(document).on('click', '.gallery_display', (e)=>{
+jQuery(document).on('click', '.gallery_display', function(){
     if(viewer_on===false){
         jQuery("#viewer_img1").css("z-index", "50")
     jQuery("#viewer_img2").css("z-index", "100")
@@ -268,10 +268,6 @@ jQuery(document).on('click', '.gallery_display', (e)=>{
     })
     jQuery('html, body').css('overflowY', 'hidden');
     viewer_on = true
-    alert(1)
-    alert(e.target.id)
-    let id5 = this.id
-    alert(id5)
     let id1 = jQuery(this).attr('id')
     let clicked_id = id1.replace("gallery_","")
     let z = parseInt(clicked_id)-1
@@ -285,7 +281,7 @@ jQuery(document).on('click', '.gallery_display', (e)=>{
     }
 })
 
-jQuery("#x3").on('click', ()=>{
+jQuery("#x3").on('click', function(){
     if(viewer_on === true){
     jQuery("#gallery").fadeTo(0,1)
     jQuery("#viewer1").fadeTo(250,0,  ()=>{
@@ -304,7 +300,7 @@ let ok_click = true
 let current_pic = 0
 let image_list = []
 
-jQuery("#right_click").on('click', ()=>{
+jQuery("#right_click").on('click', function(){
     if(ok_click === true){
     ok_click = false
     jQuery(image_list[0][0]).css("z-index","25")
@@ -324,7 +320,7 @@ jQuery("#right_click").on('click', ()=>{
     }
 })
 
-jQuery("#left_click").on('click', ()=>{
+jQuery("#left_click").on('click', function(){
     if(ok_click === true){
         ok_click = false
         jQuery(image_list[2][0]).css("z-index","25")
@@ -387,7 +383,7 @@ const gallery_initialize_mobile=(callback)=>{
 }
 
 
-jQuery("#right_scroll_mobile").on('click', ()=>{
+jQuery("#right_scroll_mobile").on('click', function(){
     if(ok_click === true){
     ok_click = false
     jQuery(image_list[0][0]).css("z-index","25")
@@ -407,7 +403,7 @@ jQuery("#right_scroll_mobile").on('click', ()=>{
     }
 })
 
-jQuery("#left_scroll_mobile").on('click', ()=>{
+jQuery("#left_scroll_mobile").on('click', function(){
     if(ok_click === true){
         ok_click = false
         jQuery(image_list[2][0]).css("z-index","25")
@@ -431,7 +427,7 @@ jQuery("#left_scroll_mobile").on('click', ()=>{
     }
 })
 
-jQuery(document).on('click', '.gallery_display_mobile', ()=>{
+jQuery(document).on('click', '.gallery_display_mobile', function(){
     if(viewer_on===false){
         jQuery("#viewer_img1_mobile").css("z-index", "50")
         jQuery("#viewer_img2_mobile").css("z-index", "100")
@@ -455,7 +451,7 @@ jQuery(document).on('click', '.gallery_display_mobile', ()=>{
     }
 })
 
-jQuery("#return_x").on('click', ()=>{
+jQuery("#return_x").on('click', function(){
     if(viewer_on === true){
     jQuery("#gallery").fadeTo(0,1)
     jQuery("#viewer1_mobile").fadeTo(250,0, ()=>{
